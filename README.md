@@ -31,11 +31,37 @@ FridgeFriend is a cross-platform, multi-user fridge/freezer inventory app. It le
 
 ## Repository layout
 
-| Folder | Contents |
-|---|---|
-| [`App/`](App/) | Flutter client application |
-| [`Backend/`](Backend/) | Backend API |
-| [`.github/`](.github/) | CI/CD workflows and code owners |
+This repo is the parent project. `App/` and `Backend/` are git submodules, each pointing at its own repository so the client and the API can be developed, versioned and reviewed independently.
+
+| Folder | Contents | Repository |
+|---|---|---|
+| [`App/`](App/) | Flutter client application | [ervinhun/App](https://github.com/ervinhun/App) |
+| [`Backend/`](Backend/) | Backend API | [ervinhun/Backend](https://github.com/ervinhun/Backend) |
+| [`.github/`](.github/) | CI/CD workflows and code owners | — |
+
+### Cloning
+
+```sh
+git clone --recurse-submodules git@github.com:ervinhun/FridgeFriend.git
+```
+
+Already cloned without `--recurse-submodules`? Run:
+
+```sh
+git submodule update --init --recursive
+```
+
+### Updating a submodule pointer
+
+After pushing changes in `App` or `Backend`, bump the parent repo's pointer so it tracks the new commit:
+
+```sh
+cd App   # or Backend
+git checkout main && git pull
+cd ..
+git add App   # or Backend
+git commit -m "Bump App submodule"
+```
 
 ## Roadmap — sprints
 
