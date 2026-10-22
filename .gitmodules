@@ -1,0 +1,6 @@
+[submodule "App"]
+	path = App
+	url = git@github.com:ervinhun/App.git
+[submodule "Backend"]
+	path = Backend
+	url = git@github.com:ervinhun/Backend.git

@@ -1,3 +1,0 @@
-# App
-
-FridgeFriend client application.

@@ -1,3 +1,0 @@
-# Api
-
-FridgeFriend backend API.
